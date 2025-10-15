@@ -40,6 +40,21 @@
     footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
     .confetti-canvas{position:absolute;inset:0;pointer-events:none}
     @media(max-width:880px){.hero{flex-direction:column}.hero .right{width:100%;max-width:100%}.header{flex-direction:column;align-items:flex-start}.avatar{width:96px;height:96px}}
+    /* --- Tambahan agar tampil rapi di HP --- */
+@media(max-width:600px){
+  .card{padding:24px}
+  .avatar{width:80px;height:80px;font-size:18px}
+  .title h1{font-size:22px;text-align:center}
+  .title p{text-align:center}
+  .meta{justify-content:center}
+  .hero{flex-direction:column;gap:16px}
+  .hero h2{font-size:18px}
+  .hero p{font-size:14px;line-height:1.6}
+  .map p, .map strong{font-size:14px}
+  .btn{font-size:13px;padding:8px 10px}
+  footer{font-size:12px;margin-top:28px}
+}
+
   </style>
 </head>
 <body>
