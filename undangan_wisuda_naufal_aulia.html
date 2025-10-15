@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Wisuda — Naufal Aulia, S.Kom</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --accent:#c9a86b; /* elegant gold */
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, #071021 60%);color:#e6eef6}
+    .container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{width:980px;max-width:96vw;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:36px;box-shadow:0 10px 30px rgba(2,6,23,0.6);position:relative;overflow:hidden}
+    .header{display:flex;gap:24px;align-items:center}
+    .avatar{width:140px;height:140px;border-radius:12px;flex:0 0 140px;background:linear-gradient(135deg,#0b1220,var(--card));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:20px}
+    .title h1{margin:0;font-size:28px;letter-spacing:0.6px}
+    .title p{margin:6px 0 0;color:var(--muted)}
+    .meta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .meta .pill{background:var(--glass);padding:10px 14px;border-radius:999px;color:var(--muted);font-weight:600}
+    .actions{position:absolute;top:22px;right:22px;display:flex;gap:8px}
+    button.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--accent);cursor:pointer;font-weight:700}
+    .play{display:flex;gap:10px;align-items:center}
+    .hero{margin-top:26px;border-radius:12px;padding:26px;background:linear-gradient(90deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));display:flex;gap:24px}
+    .hero .left{flex:1}
+    .hero .right{width:320px;max-width:38%}
+    .hero h2{margin:0;font-size:22px}
+    .hero p{color:var(--muted)}
+    .map{border-radius:8px;padding:12px;background:rgba(255,255,255,0.02);font-size:14px}
+    .guestbook{margin-top:20px}
+    .guestbook textarea{width:100%;min-height:90px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .guestbook input[type=text]{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px}
+    .entries{margin-top:12px;max-height:220px;overflow:auto;padding-right:6px}
+    .entry{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .confetti-canvas{position:absolute;inset:0;pointer-events:none}
+    @media(max-width:880px){.hero{flex-direction:column}.hero .right{width:100%;max-width:100%}.header{flex-direction:column;align-items:flex-start}.avatar{width:96px;height:96px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="card">
+      <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+      <div class="actions">
+        <div class="play">
+          <button class="btn" id="playBtn">Play ▶️</button>
+          <button class="btn" id="confettiBtn">🎉 Confetti</button>
+        </div>
+      </div>
+
+      <div class="header">
+        <div class="avatar" id="avatar">NA</div>
+        <div class="title">
+          <h1>Naufal Aulia, S.Kom</h1>
+          <p>Universitas Ubudiyah Indonesia — Wisuda</p>
+
+          <div class="meta">
+            <div class="pill">Rabu, 22 Oktober</div>
+            <div class="pill">Amel Hotel</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="left">
+          <h2>Dengan rasa syukur, kami mengundang Anda untuk hadir dalam acara wisuda.</h2>
+          <p>Merupakan kehormatan bagi kami untuk berbagi momen istimewa ini bersama teman, keluarga, dan saudara. Silakan tinggalkan ucapan selamat di kolom samping — akan sangat berarti.</p>
+
+          <div class="guestbook">
+            <input type="text" id="guestName" placeholder="Nama kamu" />
+            <textarea id="guestMsg" placeholder="Tulis ucapan selamat..."></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button class="btn" id="sendBtn">Kirim Ucapan</button>
+              <button class="btn" id="clearBtn">Hapus Semua</button>
+            </div>
+
+            <div class="entries" id="entries"></div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="map">
+            <strong>Lokasi:</strong>
+            <p style="margin:6px 0 0">Amel Hotel — Banda Aceh</p>
+            <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Klik tombol di bawah untuk buka peta (opsional: ubah link peta di kode).</p>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <a id="mapLink" class="btn" href="https://www.google.com/maps" target="_blank">Buka Peta</a>
+              <button class="btn" id="addCal">Tambah ke Kalender</button>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.01)">
+            <strong>Catatan :</strong>
+            <p style="margin:6px 0 0;color:var(--muted);font-size:13px">Ganti foto, musik, dan teks event langsung di file HTML ini. Jika deploy ke Vercel, masukkan file musik ke folder public atau gunakan link hosting.</p>
+          </div>
+        </div>
+      </div>
+
+      <footer> 
+        &copy; 2025 — Naufal Aulia ♥ — 
+      </footer>
+
+      <!-- Audio element (ganti src dengan file musikmu, misal: /music/wisuda.mp3) -->
+      <audio id="bgAudio" loop preload="none">
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+  </div>
+
+  <script>
+    // --- Guestbook (localStorage) ---
+    const entriesEl = document.getElementById('entries');
+    const guestName = document.getElementById('guestName');
+    const guestMsg = document.getElementById('guestMsg');
+    const sendBtn = document.getElementById('sendBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function loadEntries(){
+      const data = JSON.parse(localStorage.getItem('guestbook:naufal')||'[]');
+      entriesEl.innerHTML = data.map(e=>`<div class="entry"><strong>${escapeHtml(e.name)}</strong><div style="margin-top:6px;color:var(--muted)">${escapeHtml(e.msg)}</div><div style="font-size:12px;color:var(--muted);margin-top:6px">${new Date(e.time).toLocaleString()}</div></div>`).join('')
+    }
+    function escapeHtml(str){return String(str).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]})}
+    sendBtn.addEventListener('click', ()=>{
+      const name = guestName.value.trim()||'Tamu';
+      const msg = guestMsg.value.trim();
+      if(!msg) return alert('Tolong tulis ucapannya dulu.');
+      const data = JSON.parse(localStorage.getItem('guestbook:naufal')||'[]');
+      data.unshift({name,msg,time:Date.now()});
+      localStorage.setItem('guestbook:naufal', JSON.stringify(data));
+      guestName.value=''; guestMsg.value='';
+      loadEntries();
+    });
+    clearBtn.addEventListener('click', ()=>{
+      if(confirm('Hapus semua ucapan?')){localStorage.removeItem('guestbook:naufal');loadEntries();}
+    });
+    loadEntries();
+
+    // --- Audio controls ---
+    const audio = document.getElementById('bgAudio');
+    const playBtn = document.getElementById('playBtn');
+    let playing = false;
+    playBtn.addEventListener('click', ()=>{
+      if(!playing){
+        audio.play().catch(()=>{/* autoplay might be blocked; user gesture required */});
+        playBtn.textContent='Pause ⏸️';
+      } else { audio.pause(); playBtn.textContent='Play ▶️'; }
+      playing = !playing;
+    });
+
+    // --- Add to calendar (creates iCal file download) ---
+    document.getElementById('addCal').addEventListener('click', ()=>{
+      const title = encodeURIComponent('Wisuda — Naufal Aulia, S.Kom');
+      const description = encodeURIComponent('Undangan wisuda — Universitas Ubudiyah Indonesia');
+      // NOTE: Update DTSTART/DTEND to actual datetime in format: YYYYMMDDTHHMMSS
+      const dtstart = '20251022T090000'; // placeholder: 22 Oct 2025 09:00 -> change if needed
+      const dtend = '20251022T120000';
+      const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:${Date.now()}@naufal\nDTSTAMP:${formatDateICS(new Date())}\nDTSTART:${dtstart}\nDTEND:${dtend}\nSUMMARY:${decodeURIComponent(title)}\nDESCRIPTION:${decodeURIComponent(description)}\nEND:VEVENT\nEND:VCALENDAR`;
+      const blob = new Blob([ics], {type: 'text/calendar;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'wisuda-naufal.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+    function formatDateICS(d){
+      const pad=(n)=>String(n).padStart(2,'0');
+      return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+pad(d.getUTCMinutes())+pad(d.getUTCSeconds())+'Z';
+    }
+
+    // --- Confetti (simple particles) ---
+    const confettiBtn = document.getElementById('confettiBtn');
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles=[];
+    function resize(){W=canvas.width=card.clientWidth; H=canvas.height=card.clientHeight}
+    const card = document.getElementById('card');
+    resize(); window.addEventListener('resize', resize);
+    confettiBtn.addEventListener('click', ()=>{createConfetti();playConfetti();});
+    function createConfetti(){
+      particles = [];
+      const count = 120;
+      for(let i=0;i<count;i++){
+        particles.push({x:Math.random()*W, y:Math.random()*-H, vx:(Math.random()-0.5)*6, vy:Math.random()*6+2, size:Math.random()*8+4, color:`hsl(${Math.random()*60+30},70%,60%)`,rot:Math.random()*360,rotSpeed:(Math.random()-0.5)*10});
+      }
+    }
+    function playConfetti(){
+      let t=0;
+      function anim(){ctx.clearRect(0,0,W,H); t++;
+        for(const p of particles){p.x+=p.vx; p.y+=p.vy; p.vy+=0.12; p.rot+=p.rotSpeed; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180); ctx.fillStyle=p.color; ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size); ctx.restore();}
+        particles = particles.filter(p=>p.y< H + 40);
+        if(particles.length>0) requestAnimationFrame(anim);
+      }
+      anim();
+    }
+
+    // --- Avatar initials ---
+    document.getElementById('avatar').textContent = initials('Naufal Aulia');
+    function initials(name){return name.split(' ').map(s=>s[0]).slice(0,2).join('').toUpperCase()}
+
+    // --- Map link: you can replace the href with a precise Google Maps link ---
+    document.getElementById('mapLink').href = 'https://www.google.com/maps/search/Amel+Hotel+Banda+Aceh';
+
+    // --- Small safety: if music file not found, ignore errors ---
+    audio.addEventListener('error', ()=>{
+      // silently fail; user should replace music.mp3 with an actual file
+    });
+
+  </script>
+</body>
+</html>
