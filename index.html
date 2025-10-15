@@ -1,263 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Undangan Wisuda — Naufal Aulia, S.Kom</title>
-  <meta name="description" content="Undangan Wisuda Naufal Aulia — Rabu, 22 Oktober | Amel Hotel, Banda Aceh" />
-  <style>
-    :root{
-      --bg:#071027;
-      --card:#0b1220;
-      --accent:#C9A86B;
-      --muted:#9AA6B2;
-      --glass: rgba(255,255,255,0.04);
-      --glass-2: rgba(255,255,255,0.02);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, #02111a 70%);color:#eaf0f7;-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
-    .card{width:980px;max-width:98vw;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border-radius:18px;padding:28px;box-shadow:0 12px 40px rgba(2,6,23,0.7);position:relative;overflow:hidden}
-    .header{display:flex;gap:20px;align-items:center}
-    .avatar{width:120px;height:120px;border-radius:12px;flex:0 0 120px;background:linear-gradient(135deg,#071029,var(--card));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:26px}
-    .title h1{margin:0;font-size:28px;letter-spacing:0.4px}
-    .title p{margin:6px 0 0;color:var(--muted)}
-    .meta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
-    .pill{background:var(--glass);padding:9px 12px;border-radius:999px;color:var(--muted);font-weight:700;font-size:13px}
-    .actions{position:absolute;top:16px;right:16px;display:flex;gap:8px;align-items:center}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:9px 12px;border-radius:10px;color:var(--accent);cursor:pointer;font-weight:700;font-size:14px}
-    .btn.secondary{color:var(--muted);border-color:rgba(255,255,255,0.03)}
-    .hero{margin-top:18px;border-radius:12px;padding:22px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));display:flex;gap:18px}
-    .left{flex:1}
-    .right{width:320px;max-width:38%}
-    .hero h2{margin:0;font-size:21px}
-    .hero p{color:var(--muted);margin-top:10px;line-height:1.6}
-    .map{border-radius:8px;padding:12px;background:var(--glass-2);font-size:14px}
-    .guestbook{margin-top:16px}
-    .guestbook input,.guestbook textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .guestbook .controls{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-    .entries{margin-top:12px;max-height:220px;overflow:auto;padding-right:6px}
-    .entry{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px}
-    footer{margin-top:16px;color:var(--muted);font-size:13px;text-align:center}
-    canvas.confetti{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
-    @media(max-width:880px){
-      .hero{flex-direction:column}
-      .right{width:100%;max-width:100%}
-      .header{flex-direction:column;align-items:flex-start}
-      .avatar{width:92px;height:92px;font-size:20px}
-    }
-    @media(max-width:600px){
-      .card{padding:18px}
-      .avatar{width:76px;height:76px;font-size:18px}
-      .title h1{font-size:20px;text-align:center}
-      .title p{text-align:center}
-      .meta{justify-content:center}
-      .hero h2{font-size:18px}
-      .hero p{font-size:14px}
-      .btn{font-size:13px;padding:8px 10px}
-      footer{font-size:12px}
-    }
-    .fade-in{opacity:0;transform:translateY(6px);animation:appear .6s ease forwards}
-    .fade-in.delay{animation-delay:.12s}
-    @keyframes appear{to{opacity:1;transform:none}}
-    /* small link style inside card */
-    .small-link{display:inline-block;padding:6px 8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:13px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Wisuda — [Nama Lengkap Anda]</title>
+    <link rel="icon" href="https://via.placeholder.com/32/4F46E5/FFFFFF?text=NA" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        :root { --bg-dark: #111827; --card-dark: #1F2937; --primary-accent: #4F46E5; --text-light: #D1D5DB; --text-secondary: #9CA3AF; --border-color: #374151; --shadow-color: rgba(0, 0, 0, 0.4); }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); margin: 0; padding: 20px; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-dark); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; text-align: center; padding: 20px; box-sizing: border-box; transition: opacity 1s ease-out; }
+        #overlay h1 { font-size: 1.8em; color: white; margin-bottom: 10px; }
+        #overlay p { font-size: 1em; color: var(--text-secondary); margin-bottom: 30px; max-width: 400px; }
+        #open-invitation-btn { background-color: var(--primary-accent); color: white; border: none; border-radius: 8px; padding: 12px 30px; font-size: 1em; font-weight: 600; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; }
+        #open-invitation-btn:hover { transform: scale(1.05); background-color: #4338ca; }
+        .page-content { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; opacity: 0; transition: opacity 1s ease-in; pointer-events: none; }
+        .container { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; width: 100%; margin-top: 20px; }
+        @media (min-width: 768px) { .container { grid-template-columns: 2fr 1fr; } }
+        .main-content, .sidebar { background-color: var(--card-dark); border-radius: 12px; box-shadow: 0 5px 25px var(--shadow-color); padding: 30px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
+        .header .left { display: flex; align-items: center; }
+        .header .avatar { width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-accent); color: white; font-weight: 600; font-size: 1.5em; display: flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; }
+        .header .title-group h1 { font-size: 1.5em; font-weight: 600; color: var(--text-light); margin: 0; }
+        .header .title-group p { font-size: 0.9em; color: var(--text-secondary); margin: 4px 0 0 0; }
+        .description h2 { font-size: 1.4em; font-weight: 600; margin-bottom: 15px; color: white; }
+        .description p { font-size: 1em; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px; }
+        .event-main-details { display: flex; align-items: center; background-color: var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 25px; color: var(--text-light); font-size: 0.95em; }
+        .event-main-details .icon { font-size: 1.5em; color: var(--text-secondary); margin-right: 15px; }
+        .event-main-details .details-text span { display: block; margin-bottom: 3px; }
+        .event-main-details .details-text strong { font-weight: 500; color: white; }
+        .greeting-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+        .greeting-section h3 { font-size: 1.2em; font-weight: 600; margin-bottom: 15px; color: white; }
+        .greeting-section input, .greeting-section textarea { width: calc(100% - 22px); padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--border-color); color: var(--text-light); font-family: 'Poppins', sans-serif; font-size: 0.95em; margin-bottom: 15px; }
+        .greeting-section textarea { min-height: 100px; resize: vertical; }
+        .greeting-section .actions { display: flex; gap: 10px; justify-content: flex-end; }
+        .greeting-section button { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; transition: background-color 0.2s ease; }
+        .greeting-section .send-button { background-color: var(--primary-accent); color: white; }
+        .greeting-section .send-button:hover { background-color: #4338ca; }
+        .greeting-section .send-button:disabled { background-color: #374151; color: var(--text-secondary); cursor: not-allowed;}
+        .greeting-section .clear-button { background-color: #4b5563; color: white; }
+        .greeting-section .clear-button:hover { background-color: #374151; }
+        .greeting-section .info-message { font-size: 0.8em; color: var(--text-secondary); margin-top: 15px; text-align: left; }
+        .greeting-list h4 { font-size: 1em; color: var(--text-secondary); font-weight: 400; margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border-color); }
+        .sidebar .card { background-color: var(--card-dark); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+        .sidebar .card h3 { font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0; color: white; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .sidebar .card p { font-size: 0.9em; line-height: 1.6; color: var(--text-secondary); margin: 0 0 15px 0; }
+        .sidebar .action-button { display: block; width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 0.95em; font-weight: 600; text-decoration: none; text-align: center; cursor: pointer; transition: background-color 0.2s ease; margin-bottom: 10px; box-sizing: border-box; }
+        .sidebar .action-button.primary { background-color: var(--primary-accent); color: white; }
+        .sidebar .action-button.primary:hover { background-color: #4338ca; }
+        .sidebar .action-button.secondary { background-color: var(--border-color); color: var(--text-light); }
+        .sidebar .action-button.secondary:hover { background-color: #4b5563; }
+        .footer { grid-column: 1 / -1; text-align: center; margin-top: 40px; font-size: 0.85em; color: var(--text-secondary); }
+        .footer a { color: var(--primary-accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" id="card">
-      <canvas class="confetti" id="confettiCanvas"></canvas>
-
-      <div class="actions fade-in">
-        <button class="btn" id="playBtn">Play ▶️</button>
-        <button class="btn secondary" id="confettiBtn">🎉</button>
-      </div>
-
-      <div class="header fade-in">
-        <div class="avatar" id="avatar">NA</div>
-        <div class="title">
-          <h1>Undangan Wisuda — Naufal Aulia, S.Kom</h1>
-          <p>Universitas Ubudiyah Indonesia — Wisuda</p>
-          <div class="meta">
-            <div class="pill">Rabu, 22 Oktober</div>
-            <div class="pill">Amel Hotel</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero fade-in delay" style="margin-top:18px">
-        <div class="left">
-          <h2>Dengan rasa syukur kami mengundang Anda hadir pada acara wisuda.</h2>
-          <p>Merupakan kehormatan bagi kami berbagi momen istimewa ini bersama keluarga, dosen, dan sahabat. Silakan tinggalkan ucapan selamat — sangat berarti bagi kami.</p>
-
-          <div class="guestbook">
-            <input id="guestName" type="text" placeholder="Nama (opsional)" />
-            <textarea id="guestMsg" placeholder="Tulis ucapan selamat..."></textarea>
-            <div class="controls">
-              <button class="btn" id="sendBtn">Kirim Ucapan</button>
-              <button class="btn secondary" id="clearBtn">Hapus Semua (di perangkat ini)</button>
-            </div>
-            <div class="entries" id="entries"></div>
-          </div>
-        </div>
-
-        <div class="right">
-          <div class="map">
-            <strong>Lokasi</strong>
-            <p style="margin:6px 0 0">Amel Hotel — Banda Aceh</p>
-            <p style="margin:10px 0 0;color:var(--muted);font-size:13px">Klik tombol untuk buka peta di aplikasi peta bawaan.</p>
-            <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-              <a id="mapLink" class="small-link" href="#" target="_blank" rel="noopener">Lihat Lokasi</a>
-              <a id="shareLink" class="small-link" href="#" onclick="return false;">Bagikan</a>
-            </div>
-          </div>
-
-          <div style="margin-top:12px;padding:12px;border-radius:8px;background:var(--glass-2);font-size:13px;color:var(--muted)">
-            <strong>Catatan</strong>
-            <p style="margin:8px 0 0">Ganti musik di file <code>music.mp3</code> (letakkan di folder yang sama) atau ubah atribut <code>src</code> di tag audio.</p>
-          </div>
-        </div>
-      </div>
-
-      <footer class="fade-in delay" style="margin-top:18px">
-        &copy; 2025 — Naufal Aulia ♥
-      </footer>
-
-      <!-- Audio: ganti src ke music.mp3 (simpan file di folder yang sama) -->
-      <audio id="bgAudio" preload="none" loop>
-        <source src="music.mp3" type="audio/mpeg" />
-      </audio>
+    <div id="overlay">
+        <h1>Undangan Wisuda</h1>
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <button id="open-invitation-btn">💌 Buka Undangan</button>
     </div>
-  </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="main-content">
+                <div class="header"><div class="left"><div class="avatar">[NA]</div><div class="title-group"><h1>Undangan Wisuda — [Nama Lengkap Anda], S.Kom</h1><p>[Nama Universitas Anda]</p></div></div></div>
+                <div class="description"><div class="event-main-details"><span class="icon">🗓️</span><div class="details-text"><span>Selasa, 21 Oktober 2025</span><strong>Amel Hotel & Convention Hall, Banda Aceh</strong><span>08:00 WIB - Selesai</span></div></div><h2>Dengan rasa syukur, kami mengundang Anda untuk hadir.</h2><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk berbagi momen istimewa ini.</p></div>
+                <div class="greeting-section"><h3>Tulis Ucapan Selamat</h3><input type="text" placeholder="Nama Anda" id="greeting-name"><textarea placeholder="Tulis ucapan selamat..." id="greeting-text"></textarea><div class="actions"><button class="clear-button" id="clear-greeting">Hapus</button><button class="send-button" id="send-greeting" disabled>Kirim Ucapan</button></div><p class="info-message">Fitur kirim ucapan ini hanya simulasi.</p><div class="greeting-list"><h4>Jadilah yang pertama menulis ucapan.</h4></div></div>
+            </div>
+            <div class="sidebar">
+                <div class="card"><h3>Lokasi & Waktu</h3><p>Klik tombol di bawah untuk membuka peta atau menambahkan acara ke kalender Anda.</p><a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="action-button primary">📍 Buka Peta</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda+[Nama Lengkap Anda]&dates=20251021T080000/20251021T130000&details=Prosesi+Wisuda&location=Amel+Hotel+%26+Convention+Hall,+Banda+Aceh" target="_blank" class="action-button secondary">🗓️ Tambah ke Kalender</a></div>
+                <div class="card"><h3>Bagikan Undangan</h3><p>Bagikan undangan digital ini kepada teman dan kerabat Anda.</p><button id="share-button" class="action-button secondary">🔗 Bagikan</button></div>
+            </div>
+            <div class="footer">© 2025 — [Nama Lengkap Anda].</div>
+        </div>
+    </div>
+    
+    <audio id="background-music" loop preload="auto" src="https://storage.googleapis.com/media.christopheraue.net/reeds-of-innocence-patrick-de-arteaga-main-7313.mp3"></audio>
 
-  <script>
-    // helpers
-    const $ = id => document.getElementById(id);
-    const esc = s => String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]));
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openButton = document.getElementById('open-invitation-btn');
+            const music = document.getElementById('background-music');
+            const overlay = document.getElementById('overlay');
+            const pageContent = document.querySelector('.page-content');
 
-    // Avatar initials
-    $('avatar').textContent = (function initials(name='Naufal Aulia'){ return name.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase(); })();
+            // Fungsi untuk memutar musik dengan penanganan error lengkap
+            const playAudio = async () => {
+                try {
+                    await music.play();
+                    console.log("Audio berhasil diputar!");
+                } catch (err) {
+                    console.error("Gagal memutar audio:", err);
+                    // Jika gagal, tidak perlu alert, biarkan tetap senyap.
+                }
+            };
 
-    // Guestbook (localStorage)
-    const STORAGE = 'guestbook:naufal';
-    const entriesEl = $('entries');
-    function loadEntries(){
-      const data = JSON.parse(localStorage.getItem(STORAGE) || '[]');
-      if(!data.length){
-        entriesEl.innerHTML = '<div style="color:var(--muted)">Belum ada ucapan. Jadilah yang pertama.</div>';
-        return;
-      }
-      entriesEl.innerHTML = data.map(e=>`<div class="entry"><strong>${esc(e.name)}</strong><div style="margin-top:6px;color:var(--muted)">${esc(e.msg)}</div><div style="font-size:12px;color:var(--muted);margin-top:6px">${new Date(e.time).toLocaleString()}</div></div>`).join('');
-    }
-    $('sendBtn').addEventListener('click', ()=>{
-      const name = $('guestName').value.trim() || 'Tamu';
-      const msg = $('guestMsg').value.trim();
-      if(!msg) return alert('Tolong tulis ucapannya dulu.');
-      const data = JSON.parse(localStorage.getItem(STORAGE) || '[]');
-      data.unshift({name,msg,time:Date.now()});
-      localStorage.setItem(STORAGE, JSON.stringify(data.slice(0,200)));
-      $('guestName').value=''; $('guestMsg').value='';
-      loadEntries();
-    });
-    $('clearBtn').addEventListener('click', ()=>{
-      if(confirm('Hapus semua ucapan di perangkat ini?')){ localStorage.removeItem(STORAGE); loadEntries(); }
-    });
-    loadEntries();
+            openButton.addEventListener('click', () => {
+                // Panggil fungsi putar musik
+                playAudio();
+                
+                // Logika untuk menampilkan halaman
+                overlay.style.opacity = '0';
+                pageContent.style.opacity = '1';
+                pageContent.style.pointerEvents = 'auto';
 
-    // Audio controls + attempt autoplay
-    const audio = $('bgAudio');
-    const playBtn = $('playBtn');
-    let playing = false;
-    async function tryAutoPlay(){
-      try{
-        await audio.play();
-        playing = true;
-        playBtn.textContent = 'Pause ⏸️';
-      }catch(e){
-        // autoplay blocked; user must press play
-        playing = false;
-        playBtn.textContent = 'Play ▶️';
-      }
-    }
-    // try autoplay after small delay (some browsers allow if user gesture earlier)
-    setTimeout(tryAutoPlay, 400);
-
-    playBtn.addEventListener('click', async ()=>{
-      if(!playing){
-        try{ await audio.play(); playBtn.textContent='Pause ⏸️'; }catch(e){ alert('Autoplay diblokir. Tekan Play sekali lagi untuk memulai.'); }
-      } else { audio.pause(); playBtn.textContent='Play ▶️'; }
-      playing = !playing;
-    });
-
-    // Calendar ICS
-    document.querySelectorAll('.small-link');
-    const addCalButton = document.createElement('button'); // not shown; ICS on demand via prompt? We'll keep addCal omitted per request
-
-    // Map link (open maps app on mobile)
-    $('mapLink').href = 'https://www.google.com/maps/search/?api=1&query=Amel+Hotel+Banda+Aceh';
-
-    // Share (Web Share API)
-    $('shareLink').addEventListener('click', ()=>{
-      const url = location.href;
-      const title = document.title;
-      if(navigator.share){
-        navigator.share({title,text:'Undangan Wisuda — Naufal Aulia',url}).catch(()=>{});
-      } else {
-        // fallback: copy to clipboard
-        navigator.clipboard && navigator.clipboard.writeText(url).then(()=>{ alert('Link disalin ke clipboard.'); }, ()=>{ prompt('Salin link berikut:', url); });
-      }
-    });
-
-    // Confetti (simple)
-    const confettiCanvas = $('confettiCanvas');
-    const ctx = confettiCanvas.getContext('2d');
-    let W,H,parts=[];
-    function resize(){ W = confettiCanvas.width = card.clientWidth; H = confettiCanvas.height = card.clientHeight; }
-    const card = $('card');
-    resize(); window.addEventListener('resize', resize);
-    $('confettiBtn').addEventListener('click', ()=>{ spawnConfetti(); });
-    function spawnConfetti(){
-      parts = [];
-      for(let i=0;i<120;i++){
-        parts.push({
-          x: Math.random()*W,
-          y: Math.random()*-H,
-          vx: (Math.random()-0.5)*6,
-          vy: Math.random()*6+2,
-          s: Math.random()*8+4,
-          c: `hsl(${Math.random()*60+20},70%,60%)`,
-          r: Math.random()*360
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 1000);
+            });
         });
-      }
-      animateConfetti();
-    }
-    function animateConfetti(){
-      ctx.clearRect(0,0,W,H);
-      parts.forEach(p=>{
-        p.x += p.vx; p.y += p.vy; p.vy += 0.12; p.r += 4;
-        ctx.save();
-        ctx.translate(p.x,p.y);
-        ctx.rotate(p.r*Math.PI/180);
-        ctx.fillStyle = p.c;
-        ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);
-        ctx.restore();
-      });
-      parts = parts.filter(p=>p.y < H + 40);
-      if(parts.length>0) requestAnimationFrame(animateConfetti);
-    }
-
-    // tiny UX: hide keyboard on mobile when tapping outside input
-    document.addEventListener('click', e=>{
-      if(e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA') return;
-      try{ document.activeElement.blur(); }catch(e){}
-    });
-
-    // entrance animation delays
-    window.addEventListener('load', ()=>{ document.querySelectorAll('.fade-in').forEach((n,i)=>{ n.style.animationDelay=(i*0.08)+'s'; }); });
-
-  </script>
+    </script>
 </body>
 </html>
