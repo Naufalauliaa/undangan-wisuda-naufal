@@ -31,17 +31,6 @@
         .event-main-details .details-text strong { font-weight: 500; color: white; }
         .greeting-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); }
         .greeting-section h3 { font-size: 1.2em; font-weight: 600; margin-bottom: 15px; color: white; }
-        .greeting-section input, .greeting-section textarea { width: calc(100% - 22px); padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--border-color); color: var(--text-light); font-family: 'Poppins', sans-serif; font-size: 0.95em; margin-bottom: 15px; }
-        .greeting-section textarea { min-height: 100px; resize: vertical; }
-        .greeting-section .actions { display: flex; gap: 10px; justify-content: flex-end; }
-        .greeting-section button { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; transition: background-color 0.2s ease; }
-        .greeting-section .send-button { background-color: var(--primary-accent); color: white; }
-        .greeting-section .send-button:hover { background-color: #4338ca; }
-        .greeting-section .send-button:disabled { background-color: #374151; color: var(--text-secondary); cursor: not-allowed;}
-        .greeting-section .clear-button { background-color: #4b5563; color: white; }
-        .greeting-section .clear-button:hover { background-color: #374151; }
-        .greeting-section .info-message { font-size: 0.8em; color: var(--text-secondary); margin-top: 15px; text-align: left; }
-        .greeting-list h4 { font-size: 1em; color: var(--text-secondary); font-weight: 400; margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border-color); }
         .sidebar .card { background-color: var(--card-dark); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
         .sidebar .card h3 { font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0; color: white; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
         .sidebar .card p { font-size: 0.9em; line-height: 1.6; color: var(--text-secondary); margin: 0 0 15px 0; }
@@ -53,6 +42,51 @@
         .footer { grid-column: 1 / -1; text-align: center; margin-top: 40px; font-size: 0.85em; color: var(--text-secondary); }
         .footer a { color: var(--primary-accent); text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
+
+        /* ===================================== */
+        /* CSS UNTUK FORMULIR UCAPAN GOOGLE FORM */
+        /* ===================================== */
+        .greeting-section input[type="text"],
+        .greeting-section textarea {
+            width: calc(100% - 22px); /* Lebar penuh */
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--border-color); /* Warna yang sama dengan tema */
+            color: var(--text-light); /* Warna teks putih */
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .greeting-section .actions {
+            display: flex;
+            justify-content: flex-end; /* Tombol di sebelah kanan */
+            gap: 10px;
+        }
+
+        .greeting-section .send-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9em;
+            background-color: var(--primary-accent); /* Warna aksen biru/ungu */
+            color: white;
+            transition: background-color 0.2s ease;
+        }
+
+        .greeting-section .send-button:hover {
+            background-color: #4338ca; /* Warna hover */
+        }
+
+        .greeting-section .info-message {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -66,8 +100,29 @@
             <div class="main-content">
                 <div class="header"><div class="left"><div class="avatar">NA</div><div class="title-group"><h1>Undangan Wisuda — Naufal Aulia, S.Kom</h1><p>Universitas Ubudiyah Indonesia</p></div></div></div>
                 <div class="description"><div class="event-main-details"><span class="icon">🗓️</span><div class="details-text"><span>Rabu, 22 Oktober 2025</span><strong>Amel Hotel & Convention Hall, Banda Aceh</strong><span>08:00 WIB - Selesai</span></div></div><h2>Dengan rasa syukur, kami mengundang Anda untuk hadir.</h2><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk berbagi momen istimewa ini.</p></div>
-            <div class="sidebar">
-                <div class="card"><h3>Lokasi & Waktu</h3><p>Klik tombol di bawah untuk membuka peta atau menambahkan acara ke kalender Anda.</p><a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="action-button primary">📍 Buka Peta</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda+[Nama Lengkap Anda]&dates=20251021T080000/20251021T130000&details=Prosesi+Wisuda&location=Amel+Hotel+%26+Convention+Hall,+Banda+Aceh" target="_blank" class="action-button secondary">🗓️ Tambah ke Kalender</a></div>
+                
+                <div class="greeting-section">
+                    <h3>Tulis Ucapan Selamat</h3>
+                    
+                    <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLScwK5qCNohpbRARkOTMABgpN1_hfsLl84Oq3WHdllcomXqT_Q/formResponse" method="POST" target="hidden_iframe" onsubmit="formSubmitted()">
+                        
+                        <input type="text" name="entry.1123182636" placeholder="Nama Anda" required id="greeting-name">
+                        
+                        <textarea name="entry.992720245" placeholder="Tulis ucapan selamat..." required id="greeting-text"></textarea>
+                        
+                        <div class="actions">
+                            <button type="submit" class="send-button" id="send-greeting">Kirim Ucapan</button>
+                        </div>
+                    </form>
+                    
+                    <div id="success-message" style="display: none; color: var(--text-light); padding: 15px; background-color: var(--border-color); border-radius: 8px; margin-top: 20px;">
+                        Terima kasih! Ucapan Anda telah berhasil terkirim.
+                    </div>
+
+                    <p class="info-message">Ucapan Anda akan disimpan dan hanya bisa dilihat oleh pemilik undangan.</p>
+                </div>
+                </div> <div class="sidebar">
+                <div class="card"><h3>Lokasi & Waktu</h3><p>Klik tombol di bawah untuk membuka peta atau menambahkan acara ke kalender Anda.</p><a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="action-button primary">📍 Buka Peta</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda+Naufal+Aulia&dates=20251022T080000/20251022T130000&details=Prosesi+Wisuda&location=Amel+Hotel+%26+Convention+Hall,+Banda+Aceh" target="_blank" class="action-button secondary">🗓️ Tambah ke Kalender</a></div>
                 <div class="card"><h3>Bagikan Undangan</h3><p>Bagikan undangan digital ini kepada teman dan kerabat Anda.</p><button id="share-button" class="action-button secondary">🔗 Bagikan</button></div>
             </div>
             <div class="footer">© 2025 — Naufal Aulia.</div>
@@ -90,24 +145,29 @@
                     console.log("Audio berhasil diputar!");
                 } catch (err) {
                     console.error("Gagal memutar audio:", err);
-                    // Jika gagal, tidak perlu alert, biarkan tetap senyap.
                 }
             };
 
             openButton.addEventListener('click', () => {
-                // Panggil fungsi putar musik
                 playAudio();
-                
-                // Logika untuk menampilkan halaman
                 overlay.style.opacity = '0';
                 pageContent.style.opacity = '1';
                 pageContent.style.pointerEvents = 'auto';
-
                 setTimeout(() => {
                     overlay.style.display = 'none';
                 }, 1000);
             });
         });
+    </script>
+    
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) {}"></iframe>
+    <script>
+        var submitted = false;
+        function formSubmitted() {
+            submitted = true;
+            document.getElementById('google-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        }
     </script>
 </body>
 </html>
